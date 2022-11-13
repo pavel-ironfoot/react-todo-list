@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import React from 'react';
+import Main from './components/Main/Main';
 
 function App() {
+  const [tasksArray,setTasksArray] = React.useState(JSON.parse(localStorage.getItem('items')) || []);
+  const [textTask,setTextTask] = React.useState('');
+  const [editTextTask,setEditTextTask] = React.useState('');
+
+  React.useEffect(()=>{
+    localStorage.setItem('items',JSON.stringify(tasksArray));
+  },[tasksArray]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header textTask={textTask} setTextTask={setTextTask} tasksArray={tasksArray} setTasksArray={setTasksArray}/>
+      <Main editTextTask={editTextTask} setEditTextTask={setEditTextTask} setTasksArray={setTasksArray} tasksArray={tasksArray}/>
     </div>
   );
 }

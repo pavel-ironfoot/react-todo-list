@@ -1,0 +1,14 @@
+.checkedP{
+    text-decoration: line-through;
+}
+.Task{
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: linear-gradient(to top,rgb(231, 236, 233),rgb(211, 248, 248));
+}
+.Task > p{
+    border-bottom: 1px solid rgb(153, 151, 151);
+    padding: 3px;
+}
