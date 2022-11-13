@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "//pavel-ironfoot.github.io/react-todo-list/static/css/main.e2ef259b.css",
+    "main.js": "//pavel-ironfoot.github.io/react-todo-list/static/js/main.e8650a32.js",
+    "static/js/787.a5cad257.chunk.js": "//pavel-ironfoot.github.io/react-todo-list/static/js/787.a5cad257.chunk.js",
+    "index.html": "//pavel-ironfoot.github.io/react-todo-list/index.html",
+    "main.e2ef259b.css.map": "//pavel-ironfoot.github.io/react-todo-list/static/css/main.e2ef259b.css.map",
+    "main.e8650a32.js.map": "//pavel-ironfoot.github.io/react-todo-list/static/js/main.e8650a32.js.map",
+    "787.a5cad257.chunk.js.map": "//pavel-ironfoot.github.io/react-todo-list/static/js/787.a5cad257.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2ef259b.css",
+    "static/js/main.e8650a32.js"
+  ]
+}
