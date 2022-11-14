@@ -10,8 +10,8 @@ const Task = ({dragStartFunction,dragOverFunction,dropFunction,changeStyleP,chec
             <p>{dateCreation}</p>
             {edit?<input type="text" onChange={editInputTask} placeholder={task}/>:<p onClick={()=>changeStyleP(dateCreation)} className={checked?styles.normP:styles.checkedP}>{task}</p>}
             {edit?<button onClick={()=>editInputTaskDone(dateCreation)}>done</button>:<div>
-                    <div onClick={()=>deleteElement(dateCreation)}><button>delete</button></div>
-                    <div onClick={()=>editElement(dateCreation)}><button>edit</button></div>
+                    <div><button onClick={()=>deleteElement(dateCreation)}>delete</button></div>
+                    <div><button onClick={()=>editElement(dateCreation)}>edit</button></div>
                 </div>}
         </div>
     );
