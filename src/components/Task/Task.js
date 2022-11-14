@@ -1,12 +1,11 @@
 import styles from './Task.module.css';
 
+const Task = ({dragStartFunction,dragOverFunction,dropFunction,changeStyleP,checked,dateCreation,task,id,deleteElement,editElement,edit,editInputTaskDone,editInputTask}) => {
 
-
-const Task = ({changeStyleP,checked,dateCreation,task,id,deleteElement,editElement,edit,editInputTaskDone,editInputTask}) => {
 
 
     return (
-        <div className={styles.Task} key={dateCreation}>
+        <div draggable={true} onDragStart={()=>dragStartFunction(dateCreation)} onDragOver={(e)=>dragOverFunction(e,dateCreation)} onDrop={()=>dropFunction(dateCreation)} className={styles.Task} key={dateCreation}>
             <p>{id+1}</p>
             <p>{dateCreation}</p>
             {edit?<input type="text" onChange={editInputTask} placeholder={task}/>:<p onClick={()=>changeStyleP(dateCreation)} className={checked?styles.normP:styles.checkedP}>{task}</p>}

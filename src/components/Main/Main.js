@@ -3,6 +3,45 @@ import styles from './Main.module.css';
 import React from 'react';
 
 const Main = ({tasksArray,setTasksArray,setEditTextTask,editTextTask}) => {
+    let start = 0;
+    let end = 0;
+    const dragStartFunction = (dC) =>{
+        
+        tasksArray.map((elem,ind)=>{
+            if(elem.dateCreation === dC){
+                start = ind;
+            }
+        });
+        
+    }
+    const dragOverFunction = (e,dC) =>{
+        
+        e.preventDefault();
+    }
+    const dropFunction = (dC)=>{
+        
+        tasksArray.map((elem,ind)=>{
+            if(elem.dateCreation === dC){
+                end = ind;
+            }
+        });
+
+        
+
+        let newTasksArr = [...tasksArray];
+        
+        for(let i=0;i< newTasksArr.length;i++){
+            if(i ===start){
+                let h = newTasksArr[i];
+                newTasksArr[i] = newTasksArr[end];
+                newTasksArr[end] = h;
+            }
+        }
+        setTasksArray([...newTasksArr]);
+    }
+
+
+
     const changeStyleP = (dateCreation) => {
         setTasksArray([...tasksArray.map((elem)=>{
             if(elem.dateCreation === dateCreation){
@@ -43,7 +82,7 @@ const Main = ({tasksArray,setTasksArray,setEditTextTask,editTextTask}) => {
     }
     let myTasks = tasksArray.map((elem,index) =>{
         return (
-            <Task changeStyleP={changeStyleP} checked={elem.checked} editInputTaskDone={editInputTaskDone} editInputTask={editInputTask} edit={elem.edit} editElement={editElement} deleteElement={deleteElement} key={elem.dateCreation} tasksArray={tasksArray} setTasksArray={setTasksArray} id={index} task = {elem.task} dateCreation={elem.dateCreation}/>
+            <Task dragStartFunction={dragStartFunction} dragOverFunction={dragOverFunction} dropFunction={dropFunction} changeStyleP={changeStyleP} checked={elem.checked} editInputTaskDone={editInputTaskDone} editInputTask={editInputTask} edit={elem.edit} editElement={editElement} deleteElement={deleteElement} key={elem.dateCreation} tasksArray={tasksArray} setTasksArray={setTasksArray} id={index} task = {elem.task} dateCreation={elem.dateCreation}/>
         )
     });
     return (
